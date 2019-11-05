@@ -278,14 +278,14 @@ AddSubClass("barbarian", "herculean path", {
 			name : "Precocious Wrestler",
 			source : ["OoftheD", 322],
 			minlevel : 3,
-			description : "\n   " + "You have learned to take advantage of your innate strength to wrestle foes into submission. You are proficient in the Athletics skill, and you are capable of grappling and shoving creatures that are up to two sizes larger than you. On your turn, you may use a bonus action to attempt to grapple a creature. While you are grappling a creature with one hand, you may use your free hand to attack that creature with two-handed weapons as if you were using both hands.",
+			description : "\n   " + "I am proficient in the Athletics skill, and I are capable of grappling and shoving creatures that are up to two sizes larger than me. On your turn, I may use a bonus action to attempt to grapple a creature. While I am grappling a creature with one hand, I may use my free hand to attack that creature with two-handed weapons as if I were using both hands.",
 			skillstxt: "\n\n" + toUni("Herculean Path") + ": Gain proficiency in the Athletics skill"
 		},
 		"subclassfeature6" : {
 			name : "Mighty Marksman",
 			source : ["OoftheD", 322],
 			minlevel : 6,
-			description : "\n   " + "You leverage your immense strength when using ranged weapons. You can use heavy weapons without incurring disadvantage due to your size. Additionally, you may choose to use your Strength modifier for attack and damage rolls with longbows. When you make ranged attacks with longbows or thrown weapons while raging, you may add your rage damage bonus to the damage rolls." + "\n   " +	"Thunderous Shot. When you make a ranged attack,You may choose to add the effect of thunderwave to the projectile, centered on the location that the projectile hits. The DC for this effect is 8 + your proficiency bonus + your Strength modifier. Once you have used this feature, you may not use it again until you complete a short or long rest.",
+			description : "\n   " + "I can use heavy weapons without incurring disadvantage due to my size. Additionally, I may choose to use my Strength modifier for attack and damage rolls with longbows. When I make ranged attacks with longbows or thrown weapons while raging, I may add my rage damage bonus to the damage rolls." + "\n   " +	"Thunderous Shot. When I make a ranged attack, I may choose to add the effect of thunderwave to the projectile, centered on the location that the projectile hits. The DC for this effect is 8 + my proficiency bonus + my Strength modifier. Once I have used this feature, I may not use it again until I complete a short or long rest.",
 			action : ["action", "Thunderous Shot"],
 			spellcastingAbility : 1,
 			spellcastingBonus : [{
@@ -299,7 +299,7 @@ AddSubClass("barbarian", "herculean path", {
 			name : "Herculean Rage",
 			source : ["OoftheD", 322],
 			minlevel : 10,
-			description : "\n   " + "Your rages take on legendary qualities and grow more powerful the longer they endure. At the beginning of each of your turns, if you are already raging, your rage damage bonus increases by +1, up to a maximum of your Strength modifier. Additionally, while raging, you are immune to poison damage and you cannot be frightened.",
+			description : "\n   " + "At the beginning of each of my turns, if I are already raging, my rage damage bonus increases by +1, up to a maximum of my Strength modifier. Additionally, while raging, I am immune to poison damage and I cannot be frightened.",
 			dmgres : [["Poison", "Poison (rage)"]],
 			savetxt : { immune : ["frightened"]},
 		},
@@ -308,7 +308,10 @@ AddSubClass("barbarian", "herculean path", {
 			source : ["OoftheD", 322],
 			minlevel : 14,
 			description : "\n   " + 
-				"Your colossal strength causes the ground itself to tremble and quake. On your turn, you can use your action to strike the ground and create the effects of an earthquake with a 40 ft. radius, centered on your location. This area becomes difficult terrain. Each creature on the ground in the affected area that is concentrating must make a Constitution saving throw with a DC of 8 + your proficiency bonus + your Strength modifier. On a failed save, the creature's concentration is broken. At the end of your turn, each creature on the ground in the area must make a Dexterity saving throw with the same DC as the previous one. On a failed save, the creature is knocked prone. You have advantage on this saving throw. At the beginning of each of your subsequent turns, you may use your bonus action to stomp the ground and continue the effects of the earthquake until the beginning of your next turn, for a maximum duration of 1 minute. Once you have used this feature, you may not use it again until you complete a long rest."
+				"On my turn, I can use my action to strike the ground and create the effects of an earthquake with a 40 ft. radius, centered on my location. This area becomes difficult terrain. Each creature on the ground in the affected area that is concentrating must make a Constitution saving throw with a DC of 8 + my proficiency bonus + my Strength modifier. On a failed save, the creature's concentration is broken. At the end of my turn, each creature on the ground in the area must make a Dexterity saving throw with the same DC as the previous one. On a failed save, the creature is knocked prone. I have advantage on this saving throw. At the beginning of each of my subsequent turns, I may use your bonus action to stomp the ground and continue the effects of the earthquake until the beginning of your next turn, for a maximum duration of 1 minute. Once I have used this feature, I may not use it again until I complete a long rest.",
+			action: ["action", ""],
+			usage: 1,
+			recovery: "long rest"
 		}
 	}
 });
@@ -445,7 +448,7 @@ AddSubClass("cleric", "prophecy domain", {
             name: "Mindful Senses",
             source: ["OoftheD", 324],
             minlevel: 1,
-            description: "\n   " + "When you choose this domain at 1st level, you gain the message cantrip if you don’t already know it." + "\n   " + "Additionally, you gain proficiency in the Perception skill.",
+            description: "\n   " + "When I choose this domain at 1st level, I gain the message cantrip if I don’t already know it." + "\n   " + "Additionally, I gain proficiency in the Perception skill.",
             skillstxt: "\n\n" + toUni("Prophecy Domain") + ": Gain proficiency in the Perception skill",
             spellcastingBonus: [
 				{
@@ -460,14 +463,14 @@ AddSubClass("cleric", "prophecy domain", {
             name: "Blessing of Foresight",
             source: ["OoftheD", 324],
             minlevel: 1,
-			description: "\n   " + "Whenever you cast a divination spell of 1st level or higher, choose one creature you can see." + "\n   " + "That creature gains temporary hit points equal to your Wisdom modifier + your cleric level.",
+			description: "\n   " + "Whenever I cast a divination spell of 1st level or higher, choose one creature I can see." + "\n   " + "That creature gains temporary hit points equal to my Wisdom modifier + my cleric level.",
         },
 
         "subclassfeature2": {
             name: "Channel Divinity: Prophetic Trance",
             source: ["OoftheD", 324],
             minlevel: 2,
-            description: "\n   " + "As an action, for 10 minutes enter a trance-like state. Roll two d20s and record the numbers rolled. You can replace any attack roll, saving throw, or ability check made by you or a creature that you can see with one of these prophecy rolls. You must choose to do so before the roll is made. You lose the prophecy rolls when your trance ends.",
+            description: "\n   " + "As an action, for 10 minutes I can enter a trance-like state. Roll two d20s and record the numbers rolled. I can replace any attack roll, saving throw, or ability check made by me or a creature that I can see with one of these prophecy rolls. I must choose to do so before the roll is made. I lose the prophecy rolls when my trance ends.",
             action: ["action", ""],
         },
 
@@ -475,7 +478,7 @@ AddSubClass("cleric", "prophecy domain", {
             name: "Visions of Danger",
             source: ["OoftheD", 324],
             minlevel: 6,
-            description: "\n   " + "When you ready a spell that restores hit points, it does not require or break concentration." + "\n   " + "Additionally, when one of your allies takes damage or fails a saving throw, you may use your reaction to move up to your speed and cast a beneficial spell that only targets your imperiled ally." + "\n   " + "The casting time of the spell must be a reaction, action, or bonus action. You may use this feature twice, and you regain any expended uses when you finish a short or long rest.",
+            description: "\n   " + "When I ready a spell that restores hit points, it does not require or break concentration. Additionally, when one of my allies takes damage or fails a saving throw, I may use my reaction to move up to my speed and cast a beneficial spell that only targets my imperiled ally. The casting time of the spell must be a reaction, action, or bonus action. I may use this feature twice, and I regain any expended uses when I finish a short or long rest.",
             usages: 2,
             recovery: "short rest",
         },
@@ -484,14 +487,14 @@ AddSubClass("cleric", "prophecy domain", {
             name: "Healing Vapors",
             source: ["OoftheD", 324],
             minlevel: 8,
-            description: "\n   " + "Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to your Wisdom modifier." + "\n   " + "Additionally, when you cast a spell of 1st level or higher that restores hit points, you may choose to add the effect of fog cloud at the location of one of your targets." + "\n   " + "You must complete a long rest before you can create another fog cloud with this feature.",
+            description: "\n   " + "Whenever I use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to my Wisdom modifier. Additionally, when I cast a spell of 1st level or higher that restores hit points, I may choose to add the effect of fog cloud at the location of one of my targets." + "\n   " + "I must complete a long rest before I can create another fog cloud with this feature.",
         },
 
         "subclassfeature17": {
             name: "Perfect Foresight",
             source: ["OoftheD", 325],
             minlevel: 17,
-            description: "\n   " + "When you enter a prophetic trance with Channel Divinity, you may choose to replace the result of either d20 prophecy roll with any number between 1 and 19 of your choice." + "\n   " + "Additionally, while you are in the trance, you gain darkvision out to a range of 60 feet, and you can see invisible creatures and objectives within 10 feet of you that are within line of sight.",
+            description: "\n   " + "When I enter a prophetic trance with Channel Divinity, I may choose to replace the result of either d20 prophecy roll with any number between 1 and 19 of my choice." + "\n   " + "Additionally, while I am in the trance, I gain darkvision out to a range of 60 feet, and I can see invisible creatures and objectives within 10 feet of me that are within line of sight.",
         }
     }
 });
@@ -505,7 +508,7 @@ AddSubClass("fighter", "hoplite", {
 			name : "Phalanx (Shield Wall)",
 			source : ["OoftheD", 329],
 			minlevel : 3,
-			description : "\n   " + "Shield Wall. For 1 minute, you and every ally who can see or hear you gains +2 AC as long as they are standing within 5 feet of an ally who is using a shield. Additionally, your allies wielding shields gain an additional +1 AC from their own shields (this includes you). This ability does not stack with itself.",
+			description : "\n   " + "Shield Wall. For 1 minute, I and every ally who can see or hear me gains +2 AC as long as they are standing within 5 feet of an ally who is using a shield. Additionally, my allies wielding shields gain an additional +1 AC from their own shields (this includes me). This ability does not stack with itself.",
 			action : ["bonus action", ""],
 			recovery : "long rest",
 			usages : 1,
@@ -514,7 +517,7 @@ AddSubClass("fighter", "hoplite", {
 			name : "Spear Mastery",
 			source : ["OoftheD", 329],
 			minlevel : 7,
-			description : "\n   " + "Your damage dice with spears, tridents, and javelins increases to d8 (d10 when wielded with two hands), and your melee attack range with these weapons is increased to 10 feet. When you make an attack with one of these weapons, you may use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon’s damage die for this attack is a d4, and it deals bludgeoning damage.",
+			description : "\n   " + "My damage dice with spears, tridents, and javelins increases to d8 (d10 when wielded with two hands), and my melee attack range with these weapons is increased to 10 feet. When you make an attack with one of these weapons, I may use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon’s damage die for this attack is a d4, and it deals bludgeoning damage.",
 			calcChanges : {
 				atkAdd : ["if (WeaponName === 'spear','trident','javelin') { fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die; fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10), Reach 10 feet'); }; ", "With a spear, I get the following benefits:;\n - The spear damage die increases to d8 (versatile d10) and my Melee reach is now 10 feet."],
 			},
@@ -524,7 +527,7 @@ AddSubClass("fighter", "hoplite", {
 			name : "Disciplined Defense",
 			source : ["OoftheD", 329],
 			minlevel : 10,
-			description : "\n   " + "You are practiced at using your shield to intercede and protect allies. When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to add your proficiency bonus to the target's AC until the beginning of your next turn. You must be wielding a shield.",
+			description : "\n   " + "I am practiced at using my shield to intercede and protect allies. When a creature I can see attacks a target other than me that is within 5 feet of me, I can use my reaction to add my proficiency bonus to the target's AC until the beginning of my next turn. I must be wielding a shield.",
 			additional : levels.map(function (n) {
 				return n < 10 ? "" : "+" + Math.floor(n / 2) + " damage";
 			}),
@@ -534,13 +537,57 @@ AddSubClass("fighter", "hoplite", {
 			name : "Shield Buster",
 			source : ["OoftheD", 329],
 			minlevel : 15,
-			description : "\n   " + "Your attacks score a critical hit on a roll of 19 or 20. When you score a critical hit with a melee weapon, you knock away your target’s shield if they are wielding one. The shield lands in a free space up to 10 ft. away. If your target is not wielding a shield, then they suffer an additional d6 damage from the sheer force of your weapon attack.",
+			description : "\n   " + "My attacks score a critical hit on a roll of 19 or 20. When I score a critical hit with a melee weapon, I knock away my target’s shield if they are wielding one. The shield lands in a free space up to 10 ft. away. If my target is not wielding a shield, then they suffer an additional d6 damage from the sheer force of my weapon attack.",
 		},
 		"subclassfeature18" : {
 			name : "Phalanx Wrecker",
 			source : ["OoftheD", 329],
 			minlevel : 18,
-			description : "\n   " + "You have become a whirling machine of death in close quarters combat. When you take the Attack action, you can forgo one of your attacks to make a single melee attack against any number of creatures within 5 feet of you, with a separate attack roll for each target.",
+			description : "\n   " + "I have become a whirling machine of death in close quarters combat. When I take the Attack action, I can forgo one of my attacks to make a single melee attack against any number of creatures within 5 feet of me, with a separate attack roll for each target.",
+		}
+	}
+});
+
+AddSubClass("monk", "way of shield", {
+	regExpSearch : /^(?=.*shield)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
+	subname : "Way of Shield",
+	source : ["OoftheD", 329],
+	features : {
+		"subclassfeature3" : {
+			name : "Aresian Technique",
+			source : ["OoftheD", 329],
+			minlevel : 3,
+			description : "\n   " + "I gain proficency with shields and they do not impede my Martial Arts, Unarmored Movement, or Unarmored Defense. I can use a shield as a 'free hand' to catch and hold missle weapons with my Deflect Missles feature. As long as I am wielding a shield, opportunity attacks against me are made with disadvantage.",
+			armor : [false, false, false, true], //adds shield proficency
+		},
+		"subclassfeature6" : {
+			name : "Vaulting Strike",
+			source : ["OoftheD", 329],
+			minlevel : 6,
+			description : "\n   " + "As a bonus action on my turn, I may spend 1 ki point to vault yourself into the air, leaping up to 15 feet in any direction. If I are wielding a shield, then this leap does not provoke opportunity attacks. If I take an Attack action immediately after leaping, then I have advantage on your first melee attack, and it scores a critical hit on a roll of 19 or 20.",
+			action : ["bonus action", ""],
+			additional : "1 ki point"
+		},
+		"subclassfeature6.1" : {
+			name : "Counterattack",
+			source : ["OoftheD", 329],
+			minlevel : 6,
+			description : "\n   " + "Whenever a creature makes an opportunity attack against me and misses, if I am using a shield, I may use your reaction to spin around and make a single melee weapon attack against that creature, without interrupting my movement.",
+			action : ["reaction", "(after opportunity attack)"]
+		},		
+		"subclassfeature11" : {
+			name : "Shell of the Dragon Turtle",
+			source : ["OoftheD", 329],
+			minlevel : 11,
+			description : "\n   " + "As a reaction when I am attacked, I may spend 1 ki point to gain an additional +3 AC from my shield, including against the triggering attack, until the beginning of my next turn.",
+			action : ["reaction", "(after attack)"],
+			additional : "1 ki point"
+		},
+		"subclassfeature17" : {
+			name : "Undaunted Spirit",
+			source : ["OoftheD", 329],
+			minlevel : 17,
+			description : "\n   " + "I have advantage on all attacks made against creatures that are Huge in size or larger. Additionally, I cannot be frightened or paralyzed by spells or abilities used by such creatures."
 		}
 	}
 });
@@ -727,6 +774,55 @@ amazonion_conclave_functions = {
         }
     }
 };
+
+AddSubClass("rogue", "odyssean-OoftheD", {
+	regExpSearch : /^(?=.*(rogue|miscreant))(?=.*odyssean).*$/i,
+	subname : "Odyssean",
+	source : ["OoftheD", 335],
+	features : {
+		"subclassfeature3" : {
+			name : "Vagrant Soldier",
+			source : ["OoftheD", 335],
+			minlevel : 3,
+			description : "\n   " + "I gain proficiency with shields. Additionally, spears and tridents count as finesse weapons for me.",
+			armor : [false, false, false, true], //adds shield proficency
+			atkAdd : [
+				function (fields, v) {
+				if (v.WeaponName == 'spear','trident') fields.Description += '/\bfinesse\b/i';
+				},""],
+		},
+		"subclassfeature3.1" : {
+			name : "Clever as the Gods",
+			source : ["OoftheD", 335],
+			minlevel : 3,
+			description : "\n   " + "On my turn, I may use my bonus action to devise a clever plan to trick an enemy. I choose one creature that I can see and make a Charisma (Deception) roll contested by that creature’s Wisdom (Insight). If I win the contest, I and my allies have advantage on attacks against that creature until the beginning of my next turn. This feature cannot be used on the same creature more than once per combat encounter.",
+			action : ["bonus action", ""]
+		},
+		"subclassfeature9" : {
+			name : "Notorious Trickster",
+			source : ["OoftheD", 335],
+			minlevel : 9,
+			description : "\n   " + "Creatures who are aware of your presence but cannot see you become too distracted to perform opportunity attacks until they can see you again. Additionally, when you hit a creature with a Sneak Attack, if that creature is concentrating on a spell, they have disadvantage on the roll to maintain concentration."
+		},
+		"subclassfeature13" : {
+			name : "Tenacious Survivor",
+			source : ["OoftheD", 335],
+			minlevel : 13,
+			description : "\n   " + "You can add your Charisma bonus to your initiative rolls. Also, at the beginning of your first turn in combat, you may use a bonus action to take a deep breath and regain hit points equal to your rogue level. You may use this feature a number of times equal to your Charisma modifier, and you regain any expended uses when you finish a short or long rest.",
+			action : ["bonus action", ""],
+			usages : "Charisma modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Cha Mod'));",
+			recovery : "short rest"
+		},
+		"subclassfeature17" : {
+			name : "Legendary Cunning",
+			source : ["OoftheD", 335],
+			minlevel : 17,
+			description : "\n   " + "Whenever any of your allies makes an opportunity attack against a creature, you may choose to make a ranged attack against that same creature with advantage."
+		}
+	}
+});
+
 WeaponsList["spear butt end"] = {
 	regExpSearch : /^(?=.*(spear|(trident|guandao|bisento|naginata)|(javelin|\bji\b|kamayari)|(spear|\bstaff\b|\bbo\b)))(?=.*butt)(?=.*end).*$/i,
 	name : "Spear butt end",
