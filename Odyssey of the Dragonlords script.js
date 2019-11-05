@@ -517,11 +517,11 @@ AddSubClass("fighter", "hoplite", {
 			name : "Spear Mastery",
 			source : ["OoftheD", 329],
 			minlevel : 7,
-			description : "\n   " + "My damage dice with spears, tridents, and javelins increases to d8 (d10 when wielded with two hands), and my melee attack range with these weapons is increased to 10 feet. When you make an attack with one of these weapons, I may use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon’s damage die for this attack is a d4, and it deals bludgeoning damage.",
+			description : "\n   " + "My damage dice with spears, tridents, and javelins increases to d8 (d10 when wielded with two hands), and my melee attack range with these weapons is increased to 10 feet. When you make an attack with one of these weapons, I may use a bonus action to make a melee attack with the opposite end of the weapon (the sauroter). This attack uses the same ability modifier as the primary attack. The weapon’s damage die for this attack is a d4, and it deals bludgeoning damage.",
 			calcChanges : {
 				atkAdd : ["if (WeaponName === 'spear','trident','javelin') { fields.Damage_Die = fields.Damage_Die === '1d6' ? '1d8' : fields.Damage_Die; fields.Description = fields.Description.replace('versatile (1d8)', 'versatile (1d10), Reach 10 feet'); }; ", "With a spear, I get the following benefits:;\n - The spear damage die increases to d8 (versatile d10) and my Melee reach is now 10 feet."],
 			},
-			action : ["bonus action", " (Spear butt)"]
+			action : ["bonus action", " (Sauroter)"]
 		},
 		"subclassfeature10" : {
 			name : "Disciplined Defense",
@@ -823,9 +823,9 @@ AddSubClass("rogue", "odyssean-OoftheD", {
 	}
 });
 
-WeaponsList["spear butt end"] = {
-	regExpSearch : /^(?=.*(spear|(trident|guandao|bisento|naginata)|(javelin|\bji\b|kamayari)|(spear|\bstaff\b|\bbo\b)))(?=.*butt)(?=.*end).*$/i,
-	name : "Spear butt end",
+WeaponsList["sauroter"] = {
+	regExpSearch : /^(?=.*(spear|(trident|guandao|bisento|naginata)|(javelin|\bji\b|kamayari)|(spear|\bstaff\b|\bbo\b)))(?=.*sauroter)(?=.*end).*$/i,
+	name : "Sauroter",
 	source : ["OoftheD", 329],
 	ability : 1,
 	type : "Other",
