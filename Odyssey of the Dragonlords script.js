@@ -748,7 +748,7 @@ amazonion_conclave_functions = {
             cMsg: "In update " + What(prefix + 'Comp.Use.AC') + " : " + How(prefix + 'Comp.Use.AC') + " : " + How('Proficiency Bonus') + " : " + What('Proficiency Bonus'),
             nIcon: 3,
             cTitle: "Updating"
-        })
+        });
         // Update the stats
         if (newLvl < 11) {
             Value(prefix + "Comp.Use.HP.Max", Math.round(newLvl + 15));
@@ -819,6 +819,137 @@ AddSubClass("rogue", "odyssean-OoftheD", {
 			source : ["OoftheD", 335],
 			minlevel : 17,
 			description : "\n   " + "Whenever any of your allies makes an opportunity attack against a creature, you may choose to make a ranged attack against that same creature with advantage."
+		}
+	}
+});
+
+AddSubClass("sorcerer", "Demigod", {
+	regExpSearch : /^(?=.*(sorcerer|witch))((?=.*(demigod|god|half-blood))|((?=.*air)(?=.*element))).*$/i,
+	subname : "Demigod Origin",
+	source : ["OoftheD", 335],
+	features : {
+		"subclassfeature1" : {
+			name : "Godly Ancestor",
+			source : ["OoftheD", 335],
+			minlevel : 1,
+			description : "\n   " + "I can cast each of the associated spells of my godly parent's domain once without using any spell slots, and you regain the ability to do so after completing a short or long rest. Whenever I make a Charisma check when interacting with gods or celestials, my proficiency bonus is doubled if it applies to the check.",
+			choices : ["Death Domain", "Knowledge Domain", "Life Domain", "Light Domain", "Nature Domain", "Tempest Domain", "Trickery Domain", "War Domain"],
+				"death domain" : {
+					name : "Death Domain",
+					description : "\n   " + "I have ancestry with a god of the death domain, I gain the following spells: bane and ray of sickness" + "\n   " + "Whenever I make a Charisma check when interacting with gods or celestials, my proficiency bonus is doubled if it applies to the check.",
+					spellcastingExtra : ["bane", "ray of sickness"].concat(new Array(98)).concat("AddToKnown")
+				},
+				"knowledge domain" : {
+					name : "Knowledge Domain",
+					description : "\n   " + "I have ancestry with a god of the knowledge domain, I gain the following spells: command and guiding bolt" + "\n   " + "Whenever I make a Charisma check when interacting with gods or celestials, my proficiency bonus is doubled if it applies to the check.",
+					spellcastingExtra : ["command", "guiding bolt"].concat(new Array(98)).concat("AddToKnown")
+				},
+				"life domain" : {
+					name : "Life Domain",
+					description : "\n   " + "I have ancestry with a god of the life domain, I gain the following spells: cure wounds and bless" + "\n   " + "Whenever I make a Charisma check when interacting with gods or celestials, my proficiency bonus is doubled if it applies to the check.",
+					spellcastingExtra : ["cure wounds", "bless"].concat(new Array(98)).concat("AddToKnown")
+				},
+				"nature domain" : {
+					name : "Nature Domain",
+					description : "\n   " + "I have ancestry with a god of the nature domain, I gain the following spells: entangle and healing word" + "\n   " + "Whenever I make a Charisma check when interacting with gods or celestials, my proficiency bonus is doubled if it applies to the check.",
+					spellcastingExtra : ["entangle", "healing word"].concat(new Array(98)).concat("AddToKnown")
+				},
+				"light domain" : {
+					name : "Light Domain",
+					description : "\n   " + "I have ancestry with a god of the light domain, I gain the following spells: burning hands and faerie fire" + "\n   " + "Whenever I make a Charisma check when interacting with gods or celestials, my proficiency bonus is doubled if it applies to the check.",
+					spellcastingExtra : ["burning hands", "faerie fire"].concat(new Array(98)).concat("AddToKnown")
+				},	
+				"tempest domain" : {
+					name : "Tempest Domain",
+					description : "\n   " + "I have ancestry with a god of the tempest domain, I gain the following spells: fog cloud and thunderwave" + "\n   " + "Whenever I make a Charisma check when interacting with gods or celestials, my proficiency bonus is doubled if it applies to the check.",
+					spellcastingExtra : ["fog cloud", "thunderwave"].concat(new Array(98)).concat("AddToKnown")
+				},
+				"trickery domain" : {
+					name : "Trickery Domain",
+					description : "\n   " + "I have ancestry with a god of the trickery domain, I gain the following spells: charm person and hideous laughter" + "\n   " + "Whenever I make a Charisma check when interacting with gods or celestials, my proficiency bonus is doubled if it applies to the check.",
+					spellcastingExtra : ["charm person", "hideous laughter"].concat(new Array(98)).concat("AddToKnown")
+				},
+				"war domain" : {
+					name : "War Domain",
+					description : "\n   " + "I have ancestry with a god of the war domain, I gain the following spells: shield of faith and thunderous smite" + "\n   " + "Whenever I make a Charisma check when interacting with gods or celestials, my proficiency bonus is doubled if it applies to the check.",
+					spellcastingExtra : ["shield of faith", "thunderous smite"].concat(new Array(98)).concat("AddToKnown")
+				},
+		},
+		"subclassfeature1.1" : {
+			name : "Inherited Strength",
+			source : ["OoftheD", 336],
+			minlevel : 1,
+			description : "\n   " + "I am proficient in Strength saving throws. Additionally, I may choose to add my Charisma modifier to melee attack and damage rolls instead of my Strength.",
+			saves : ["Str"]			
+		},
+		"subclassfeature6" : {
+			name : "Empowered Magic",
+			source : ["OoftheD", 336],
+			minlevel : 6,
+			description : "\n   " + "When I cast a spell, I may spend 1 sorcery point to increase the spell's level by 1. I cannot use this feature to increase a spell’s level by more than 1. For example, if I use a 5th-level spell slot to cast fireball as a 5th-level spell, I may spend 1 sorcery point to cast the spell at 6th level instead."
+		},
+
+		"subclassfeature14" : {
+			name : "Divine Resistance",
+			source : ["OoftheD", 336],
+			minlevel : 14,
+			description : "\n   " + "When I fail a saving throw, I may choose to succeed instead. I may use this feature once, and I regain the ability to do so after completing a long rest.",
+			usage : 1,
+			recovery : "long rest"
+		},
+		"subclassfeature18" : {
+			name : "Ascendant Sorcery",
+			source : ["OoftheD", 336],
+			minlevel : 18,
+			description : "\n   " + "When I use the Empowered Magic feature, I may increase the spell’s level by more than 1. I must spend 1 sorcery point for each level that I add to the spell."
+		}
+	}
+});
+
+AddSubClass("warlock", "the fates", {
+	regExpSearch : /^(?=.*warlock)(?=.*fates).*$/i,
+	subname : "the Fates",
+	source : ["OoftheD", 336],
+	spellcastingExtra : ["detect evil", "identify", "levitate", "see invisibility", "clairvoyance", "call lightning", "arcane eye", "divination", "planar binding", "geas"],
+	features : {
+		"subclassfeature1" : {
+			name : "Fate's Binding",
+			source : ["OoftheD", 336],
+			minlevel : 1,
+			description : "\n   " + "I can cast one divination spell without expending a spell slot immediately after completing a short or long rest. If I do so, I gain temporary hit points equal to your warlock level (minimum of 1). I must choose a spell that Ican normally cast, and I must have the necessary material components.",
+			extraLimitedFeatures : [{
+				name : "Fate's Binding", 
+				usage : 1,
+				recovery : "short rest"
+			}],
+		},
+		"subclassfeature6" : {
+			name : "Fate's Fortelling",
+			source : ["OoftheD", 336],
+			minlevel : 6,
+			description : "\n   " + "When I finish a short or long rest, I roll 1d20 and record the number I rolled. I can replace any attack roll, saving throw, or ability check made by me or a creature that I can see with this roll. I must choose to do so before the roll. This foretelling roll can be used only once. When I finish a short or long rest, I lose any unused foretelling rolls.",
+			usage : 1,
+			recovery : "short rest"
+		},
+		"subclassfeature10" : {
+			name : "Fate's Demands",
+			source : ["OoftheD", 336],
+			minlevel : 10,
+			description : "\n   " + "Each time I reduce a creature to 0 hit points, I regain one expended spell slot. I may use this feature twice, and I regain any expended uses when I finish a long rest.",
+			extraLimitedFeatures : [{
+				name : "Fate's Demands", 
+				usage : 2,
+				recovery : "long rest"		
+			}],
+		},
+		"subclassfeature14" : {
+			name : "Inescapable Fate",
+			source : ["OoftheD", 336],
+			minlevel : 14,
+			description : "\n   " + "I can use an action to force a creature I can see to make a Wisdom saving throw. If the creature is unaware of my presence, then it has disadvantage on the roll. If the creature fails the saving throw, I choose another creature that I can see. The first creature is compelled by fate to move toward the second creature for 1 minute." + "\n   " + "At the beginning of each of the first creature’s turns, if it is not located within 5 feet of the second creature, then the first creature takes 2d10 psychic damage, and it must use its full movement to move closer to the second creature, dashing if necessary, even if it cannot reach them. This effect ends if I or either of the creatures are reduced to 0 hit points or knocked unconscious. Once I use this feature, I can’t use it again until I finish a long rest.",
+			action : ["action", ""],
+			usages : 1,
+			recovery : "long rest"
 		}
 	}
 });
