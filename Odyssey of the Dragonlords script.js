@@ -8,10 +8,10 @@ SourceList["OoftheD"] = {
     date: "2019/09/20",
 };
 
-RaceList["thyleacnentaur"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+RaceList["thyleancentaur"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
 	regExpSearch : /^(?=.*centaur)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
 	name : "Thylean Centaur", //required; the name to use for the race
-	source : ["OoftheD", 0], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	source : ["OoftheD", 312], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
 	plural : "Centaurs", //required; the name to use for the race when the plural form is used
 	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
 	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
@@ -33,7 +33,7 @@ RaceList["thyleacnentaur"] = { //Object name; Note the use of only lower case! A
 			action : ["bonus action", "Mountable"], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
 			},
 		
-		"breath weapon" : {
+		"charge" : {
 			name : "Charge",
 			minlevel : 1,
 			usages : 1,
@@ -41,6 +41,609 @@ RaceList["thyleacnentaur"] = { //Object name; Note the use of only lower case! A
 			tooltip : "",
 		},
 		},
+};
+
+RaceList["thyleanmedusa"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+	regExpSearch : /^(?=.*medusa)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
+	name : "Thylean Medusa", //required; the name to use for the race
+	source : ["OoftheD", 313], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	plural : "Medusae", //required; the name to use for the race when the plural form is used
+	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
+		// all of the following attributes are optional and you can add more ("burrow" isn't part of this example!)
+		walk : { spd : 30, enc : 15 }, // the objects "walk", "burrow", "climb", "fly", "swim" are all the same, they are an object with two attributes, 'spd' for the speed in feet, and 'enc' for the encumbered speed in feet.		
+	},
+	savetxt : { 
+	adv_vs : ["poison conditions"]
+	},
+	languageProfs : ["Common", 1], // optional; this is an array of the language proficiencies gained. An entry can either be 1) a string that represents the language learned or 2) a number which is the number of language gained that can be chosen by the player
+	weapons : ["Snake Hair", "Petrifying Gaze"], //optional; an array of weapons that are added to the attacks section; This will be the name of the weapon how it appears in the attack section, not necessarily the object name in the WeaponsList
+	age : " not born, are made. Can live for thousands of years once creaated.", //optional; the age tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	height : " same size and build as humans", //optional; the height tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	weight : " same size and range as humans", //optional; the weight tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	vision : ["Darkvision", 60],
+	improvements : "Medusa: +1 Intellegence, +2 Dexterity;", //required; the text that is displayed when listing all the ability score improvements
+	scores : [0, 2, 0, 1, 0, 0], //required; the ability score improvements as used by the Ability Score dialog. The syntax is: [Str, Dex, Con, Int, Wis, Cha]
+	trait : "Medusa (+1 Intellegence, +2 Dexterity)\nCursed:\n I am afflicted by the curse of the medusa, but my transformation is already complete. My curse can only be ended with the wish spell. If my curse ends, then my race changes to whichever race I was before I became cursed (usually a human).", //required; the racial trait as it will be put in the Racial Trait field on the second page (note that "\n" is a line break).
+	toNotesPage : [{
+		name : "Snake Hair:",
+		page3notes : true,
+		note : [
+			"I can attack with my snake hair. This is a melee weapon attack with an attack bonus equal to my proficiency modifier + my Dexterity modifier. It does 1d6 piercing damage on a hit, and my target must make a DC 12 Constitution saving throw or else they are poisoned until the beginning of my next turn."
+		]},
+		{
+		name : "Snake Blood:",
+		page3notes : true,
+		note : [
+			"I have advantage on saving throws against spells and abilities that inflict the poisoned condition."
+		]},
+		{
+		name : "Petrifying Gaze:",
+		page3notes : true,
+		note : [
+			"Starting at 5th level, you can use your action to force a creature within 30 feet that can see your eyes to make a DC 8 Constitution saving throw. On a failure, the creature is paralyzed until the end of its next turn. On your turn, you can use your bonus action to force the same creature to repeat this saving throw with disadvantage. Each time it fails, it is paralyzed again until the end of its next turn. When a creature is paralyzed in this way for the third time in a span of 10 minutes, it is instantly petrified.\nStarting at 10th level, the DC for this saving throw increases to 10. At 15th level, the DC increases to 12. At 20th level, the DC increases to 14."
+		]}
+	],
+
+	features : { //optional; the racial features. Each works the same way, so only a couple of example are given. You can add as many as you want. If the race has no level-dependent or limited features, you can just delete the whole feature entry all together
+		"cursed" : { //note the use of lower case characters
+			name : "Cursed", //required; the name of the racial feature
+			minlevel : 1, //required; the level at which the feature is gained			
+			description : "I am afflicted by the curse of the medusa, but my transformation is already complete. My curse can only be ended with the wish spell. If my curse ends, then my race changes to whichever race I was before I became cursed (usually a human).",
+			},
+		
+		"snake hair" : {
+			name : "Snake Hair",
+			regExpSearch : /^(?=.*snake)(?=.*hair).*$/i,
+			tooltip : " (Medusa Legacy)",
+			minlevel : 1,
+			weaponsAdd : ["snake hair"],
+		},
+		"petrifying gaze" : {
+			name : 	"Petrifying Gaze",
+			regExpSearch : /^(?=.*snake)(?=.*petrifying).*$/i,
+			tooltip : " (Medusa Legacy)",
+			minlevel : 5,
+			weaponsAdd : ["petrifying gaze"],
+		}	
+	},
+};
+
+RaceList["thyleanminotaur"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+	regExpSearch : /^(?=.*minotaur)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
+	name : "Thylean Minotaur", //required; the name to use for the race
+	source : ["OoftheD", 315], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	plural : "Minotaurs", //required; the name to use for the race when the plural form is used
+	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
+		// all of the following attributes are optional and you can add more ("burrow" isn't part of this example!)
+		walk : { spd : 40, enc : 20 }, // the objects "walk", "burrow", "climb", "fly", "swim" are all the same, they are an object with two attributes, 'spd' for the speed in feet, and 'enc' for the encumbered speed in feet.		
+	},
+	languageProfs : ["Common", "Abyssal"], // optional; this is an array of the language proficiencies gained. An entry can either be 1) a string that represents the language learned or 2) a number which is the number of language gained that can be chosen by the player
+	weapons : ["Cursed Transformation"], //optional; an array of weapons that are added to the attacks section; This will be the name of the weapon how it appears in the attack section, not necessarily the object name in the WeaponsList
+	age : " mature at the same rate as humans", //optional; the age tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	height : " range from 6 to over 8 feet tall", //optional; the height tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	weight : " weigh between 200 and 400 lb", //optional; the weight tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	improvements : "Minotaur: +1 Constitution, +2 Strength;", //required; the text that is displayed when listing all the ability score improvements
+	scores : [2, 0, 1, 0, 0, 0], //required; the ability score improvements as used by the Ability Score dialog. The syntax is: [Str, Dex, Con, Int, Wis, Cha]
+	vision : [["colorblind", 0], ["keen snout", 0]],
+	trait : "Minotaur (+1 Constitution, +2 Strength)\nLabyrinthine Vision:\n Your eyes are adapted to the dark conditions of deep canyons and underground labyrinths, giving you darkvision out to 60 ft. You have advantage on skill checks made to solve maze-like puzzles. Additionally, you automatically succeed on saving throws against maze and hypnotic pattern.", //required; the racial trait as it will be put in the Racial Trait field on the second page (note that "\n" is a line break).
+	features : { //optional; the racial features. Each works the same way, so only a couple of example are given. You can add as many as you want. If the race has no level-dependent or limited features, you can just delete the whole feature entry all together
+		"cursed transformation" : { //note the use of lower case characters
+			name : "Cursed Transformation", //required; the name of the racial feature
+			minlevel : 5, //required; the level at which the feature is gained	
+			usages : 1,
+			recovery : "long rest",
+			action : ["bonus action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			},
+	},
+	toNotesPage : [{
+		name : "Keen Snout:",
+		page3notes : true,
+		note : [
+			" You have advantage on Wisdom (Perception) checks that rely on smell, and you can detect strong odors from up to six miles away.",
+		]},
+		{
+		name : "Cursed Transformation:",
+		page3notes : true,
+		note : [
+			" Starting at 5th level, you may use your bonus action to transform yourself into a bull using the rules of the polymorph spell (no concentration required). This ability recharges after a long rest. This ability automatically triggers if you suffer prolonged exposure to very bright shades of red. Starting at 9th level, this ability transforms you into a dire bull.",
+		]},
+		{
+		name : "Colorblindness:",
+		page3notes : true,
+		note : [
+			" You see the world in shades of red and grey, leaving you incapable of discerning any color except for very bright reds.",
+		]
+		}]
+};
+
+RaceList["thyleannymph-aurae"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+	regExpSearch : /^(?=.*nymph)(?=.*aurae)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
+	name : "Thylean Nymph, Aurae", //required; the name to use for the race
+	source : ["OoftheD", 317], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	plural : "Aurae", //required; the name to use for the race when the plural form is used
+	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
+		// all of the following attributes are optional and you can add more ("burrow" isn't part of this example!)
+		walk : { spd : 30, enc : 15 }, // the objects "walk", "burrow", "climb", "fly", "swim" are all the same, they are an object with two attributes, 'spd' for the speed in feet, and 'enc' for the encumbered speed in feet.		
+	},
+	languageProfs : ["Common", "Sylvan"], // optional; this is an array of the language proficiencies gained. An entry can either be 1) a string that represents the language learned or 2) a number which is the number of language gained that can be chosen by the player
+	age : " can live for approximately 1,000 years", //optional; the age tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	height : " same size as humans", //optional; the height tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	weight : " weigh roughly the same as elves; tend toward a more 'willowly' build", //optional; the weight tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	improvements : "Aurae: +1 Wisdom, +2 Charisma;", //required; the text that is displayed when listing all the ability score improvements
+	scores : [0, 0, 0, 0, 1, 2], //required; the ability score improvements as used by the Ability Score dialog. The syntax is: [Str, Dex, Con, Int, Wis, Cha]
+	skills : ["Perception"],
+	vision : ["Darkvision", 60],
+	trait : "Aurae (+1 Wisdom, +2 Charisma)\nEnthralling Beauty:\n You possess unearthly grace and beauty, which allows you to dazzle and charm those who are susceptible to such things. You have advantage on Wisdom (Survival) checks when navigating by the stars.. Additionally, you can cast the charm person spell once with this trait and regain the ability to do so when you finish a short or long rest. Charisma is your spellcasting ability for this spell.", //required; the racial trait as it will be put in the Racial Trait field on the second page (note that "\n" is a line break).
+	features : { //optional; the racial features. Each works the same way, so only a couple of example are given. You can add as many as you want. If the race has no level-dependent or limited features, you can just delete the whole feature entry all together
+		"enthralling beauty" : { //note the use of lower case characters
+			name : "Enthralling Beauty", //required; the name of the racial feature
+			minlevel : 1, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Nymph Legacy)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Nymph Legacy (level 1)",
+				spells : ["charm person"],
+				selection : ["charm person"],
+				oncesr : true
+			}
+		},			
+		"aurae ancestry" : { //note the use of lower case characters
+			name : "Faerie Fire (Aurae Ancestry)", //required; the name of the racial feature
+			minlevel : 3, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Aurae Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Aurae Ancestry (level 3)",
+				spells : ["faerie fire"],
+				selection : ["faerie fire"],
+				oncesr : true
+			},
+		},
+			"aurae ancestry 2" : { //note the use of lower case characters
+			name : "Levitate (Aurae Ancestry)", //required; the name of the racial feature
+			minlevel : 7, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Aurae Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Aurae Ancestry (level 7)",
+				spells : ["levitate"],
+				selection : ["levitate"],
+				oncesr : true
+			}
+		}
+	}
+};
+
+RaceList["thyleannymph-dryad"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+	regExpSearch : /^(?=.*nymph)(?=.*dryad)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
+	name : "Thylean Nymph, Dryad", //required; the name to use for the race
+	source : ["OoftheD", 317], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	plural : "Dryads", //required; the name to use for the race when the plural form is used
+	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
+		// all of the following attributes are optional and you can add more ("burrow" isn't part of this example!)
+		walk : { spd : 30, enc : 15 }, // the objects "walk", "burrow", "climb", "fly", "swim" are all the same, they are an object with two attributes, 'spd' for the speed in feet, and 'enc' for the encumbered speed in feet.		
+	},
+	languageProfs : ["Common", "Sylvan"], // optional; this is an array of the language proficiencies gained. An entry can either be 1) a string that represents the language learned or 2) a number which is the number of language gained that can be chosen by the player
+	age : " can live for approximately 1,000 years", //optional; the age tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	height : " same size as humans", //optional; the height tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	weight : " weigh roughly the same as elves; tend toward a more 'willowly' build", //optional; the weight tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	improvements : "Dryads: +1 Wisdom, +2 Charisma;", //required; the text that is displayed when listing all the ability score improvements
+	scores : [0, 0, 0, 0, 1, 2], //required; the ability score improvements as used by the Ability Score dialog. The syntax is: [Str, Dex, Con, Int, Wis, Cha]
+	skills : ["Perception"],
+	trait : "Dryads (+1 Wisdom, +2 Charisma)\nEnthralling Beauty:\n You possess unearthly grace and beauty, which allows you to dazzle and charm those who are susceptible to such things. you have advantage on Wisdom (Survival) checks in forested regions.. Additionally, you can cast the charm person spell once with this trait and regain the ability to do so when you finish a short or long rest. Charisma is your spellcasting ability for this spell.", //required; the racial trait as it will be put in the Racial Trait field on the second page (note that "\n" is a line break).
+	features : { //optional; the racial features. Each works the same way, so only a couple of example are given. You can add as many as you want. If the race has no level-dependent or limited features, you can just delete the whole feature entry all together
+		"enthralling beauty" : { //note the use of lower case characters
+			name : "Enthralling Beauty", //required; the name of the racial feature
+			minlevel : 1, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Nymph Legacy)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Nymph Legacy (level 1)",
+				spells : ["charm person"],
+				selection : ["charm person"],
+				oncesr : true
+			}
+		},			
+		"dryad ancestry" : { //note the use of lower case characters
+			name : "Goodberry (Dyrad Ancestry)", //required; the name of the racial feature
+			minlevel : 3, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Dryad Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Dryad Ancestry (level 3)",
+				spells : ["goodberry"],
+				selection : ["goodberry"],
+				oncesr : true
+			},
+		},
+			"dryad ancestry 2" : { //note the use of lower case characters
+			name : "Barkskin (Dryad Ancestry)", //required; the name of the racial feature
+			minlevel : 7, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Dryad Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Dryad Ancestry (level 7)",
+				spells : ["barkskin"],
+				selection : ["barkskin"],
+				oncesr : true
+			}
+		}
+	}
+};
+
+RaceList["thyleannymph-naiad"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+	regExpSearch : /^(?=.*nymph)(?=.*naiad)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
+	name : "Thylean Nymph, Naiad", //required; the name to use for the race
+	source : ["OoftheD", 317], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	plural : "Naiads", //required; the name to use for the race when the plural form is used
+	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
+		// all of the following attributes are optional and you can add more ("burrow" isn't part of this example!)
+		walk : { spd : 30, enc : 15 },
+		swim : { spd : 40},		// the objects "walk", "burrow", "climb", "fly", "swim" are all the same, they are an object with two attributes, 'spd' for the speed in feet, and 'enc' for the encumbered speed in feet.		
+	},
+	languageProfs : ["Common", "Sylvan"], // optional; this is an array of the language proficiencies gained. An entry can either be 1) a string that represents the language learned or 2) a number which is the number of language gained that can be chosen by the player
+	age : " can live for approximately 1,000 years", //optional; the age tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	height : " same size as humans", //optional; the height tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	weight : " weigh roughly the same as elves; tend toward a more 'willowly' build", //optional; the weight tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	improvements : "Naiad: +1 Wisdom, +2 Charisma;", //required; the text that is displayed when listing all the ability score improvements
+	scores : [0, 0, 0, 0, 1, 2], //required; the ability score improvements as used by the Ability Score dialog. The syntax is: [Str, Dex, Con, Int, Wis, Cha]
+	skills : ["Perception"],
+	trait : "Naiad (+1 Wisdom, +2 Charisma)\nEnthralling Beauty:\n You possess unearthly grace and beauty, which allows you to dazzle and charm those who are susceptible to such things. You can hold your breath for 1 hour, and you have a swimming speed of 40 ft. Additionally, you can cast the charm person spell once with this trait and regain the ability to do so when you finish a short or long rest. Charisma is your spellcasting ability for this spell.", //required; the racial trait as it will be put in the Racial Trait field on the second page (note that "\n" is a line break).
+	features : { //optional; the racial features. Each works the same way, so only a couple of example are given. You can add as many as you want. If the race has no level-dependent or limited features, you can just delete the whole feature entry all together
+		"enthralling beauty" : { //note the use of lower case characters
+			name : "Enthralling Beauty", //required; the name of the racial feature
+			minlevel : 1, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Nymph Legacy)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Nymph Legacy (level 1)",
+				spells : ["charm person"],
+				selection : ["charm person"],
+				oncesr : true
+			}
+		},			
+		"naiad ancestry" : { //note the use of lower case characters
+			name : "Water (Naiad Ancestry)", //required; the name of the racial feature
+			minlevel : 3, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Naiad Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Naiad Ancestry (level 3)",
+				spells : ["create and destroy water"],
+				selection : ["create and destroy water"],
+				oncesr : true
+			},
+		},
+			"naiad ancestry 2" : { //note the use of lower case characters
+			name : "Control Water (Naiad Ancestry)", //required; the name of the racial feature
+			minlevel : 7, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Naiad Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Naiad Ancestry (level 7)",
+				spells : ["control water"],
+				selection : ["control water"],
+				oncesr : true
+			}
+		}
+	}
+};
+
+RaceList["thyleannymph-nereid"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+	regExpSearch : /^(?=.*nymph)(?=.*nereid)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
+	name : "Thylean Nymph, Nereid", //required; the name to use for the race
+	source : ["OoftheD", 317], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	plural : "Nereid", //required; the name to use for the race when the plural form is used
+	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
+		// all of the following attributes are optional and you can add more ("burrow" isn't part of this example!)
+		walk : { spd : 30, enc : 15 },
+		swim : { spd : 40},	 // the objects "walk", "burrow", "climb", "fly", "swim" are all the same, they are an object with two attributes, 'spd' for the speed in feet, and 'enc' for the encumbered speed in feet.		
+	},
+	languageProfs : ["Common", "Sylvan"], // optional; this is an array of the language proficiencies gained. An entry can either be 1) a string that represents the language learned or 2) a number which is the number of language gained that can be chosen by the player
+	age : " can live for approximately 1,000 years", //optional; the age tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	height : " same size as humans", //optional; the height tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	weight : " weigh roughly the same as elves; tend toward a more 'willowly' build", //optional; the weight tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	improvements : "Nereids: +1 Wisdom, +2 Charisma;", //required; the text that is displayed when listing all the ability score improvements
+	scores : [0, 0, 0, 0, 1, 2], //required; the ability score improvements as used by the Ability Score dialog. The syntax is: [Str, Dex, Con, Int, Wis, Cha]
+	skills : ["Perception"],
+	trait : "Nereid (+1 Wisdom, +2 Charisma)\nEnthralling Beauty:\n You possess unearthly grace and beauty, which allows you to dazzle and charm those who are susceptible to such things. You can breathe underwater, and you have a swimming speed of 40 ft. Additionally, you can cast the charm person spell once with this trait and regain the ability to do so when you finish a short or long rest. Charisma is your spellcasting ability for this spell.", //required; the racial trait as it will be put in the Racial Trait field on the second page (note that "\n" is a line break).
+	features : { //optional; the racial features. Each works the same way, so only a couple of example are given. You can add as many as you want. If the race has no level-dependent or limited features, you can just delete the whole feature entry all together
+		"enthralling beauty" : { //note the use of lower case characters
+			name : "Enthralling Beauty", //required; the name of the racial feature
+			minlevel : 1, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Nymph Legacy)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Nymph Legacy (level 1)",
+				spells : ["charm person"],
+				selection : ["charm person"],
+				oncesr : true
+			}
+		},			
+		"nereid ancestry" : { //note the use of lower case characters
+			name : "Fog Clout (Nereid Ancestry)", //required; the name of the racial feature
+			minlevel : 3, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Nereid Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Nereid Ancestry (level 3)",
+				spells : ["fog cloud"],
+				selection : ["fog cloud"],
+				oncesr : true
+			},
+		},
+			"nereid ancestry 2" : { //note the use of lower case characters
+			name : "Water Walk (Nereid Ancestry)", //required; the name of the racial feature
+			minlevel : 7, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Nereid Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Nereid Ancestry (level 7)",
+				spells : ["water walk"],
+				selection : ["water walk"],
+				oncesr : true
+			}
+		}
+	}
+};
+
+RaceList["thyleannymph-oread"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+	regExpSearch : /^(?=.*nymph)(?=.*oread)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
+	name : "Thylean Nymph, Oread", //required; the name to use for the race
+	source : ["OoftheD", 319], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	plural : "Oreads", //required; the name to use for the race when the plural form is used
+	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
+		// all of the following attributes are optional and you can add more ("burrow" isn't part of this example!)
+		walk : { spd : 30, enc : 15 }, // the objects "walk", "burrow", "climb", "fly", "swim" are all the same, they are an object with two attributes, 'spd' for the speed in feet, and 'enc' for the encumbered speed in feet.		
+	},
+	languageProfs : ["Common", "Sylvan"], // optional; this is an array of the language proficiencies gained. An entry can either be 1) a string that represents the language learned or 2) a number which is the number of language gained that can be chosen by the player
+	age : " can live for approximately 1,000 years", //optional; the age tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	height : " same size as humans", //optional; the height tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	vision : ["Darkvision", 60],
+	weight : " weigh roughly the same as elves; tend toward a more 'willowly' build", //optional; the weight tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	improvements : "Oreads: +1 Wisdom, +2 Charisma;", //required; the text that is displayed when listing all the ability score improvements
+	scores : [0, 0, 0, 0, 1, 2], //required; the ability score improvements as used by the Ability Score dialog. The syntax is: [Str, Dex, Con, Int, Wis, Cha]
+	skills : ["Perception"],
+	trait : "Oread (+1 Wisdom, +2 Charisma)\nEnthralling Beauty:\n You possess unearthly grace and beauty, which allows you to dazzle and charm those who are susceptible to such things. You have Darkvision out to 60 ft., and you have advantage on Wisdom (Survival) checks in steppes, rocky islands, and mountainous regions. Additionally, you can cast the charm person spell once with this trait and regain the ability to do so when you finish a short or long rest. Charisma is your spellcasting ability for this spell.", //required; the racial trait as it will be put in the Racial Trait field on the second page (note that "\n" is a line break).
+	features : { //optional; the racial features. Each works the same way, so only a couple of example are given. You can add as many as you want. If the race has no level-dependent or limited features, you can just delete the whole feature entry all together
+		"enthralling beauty" : { //note the use of lower case characters
+			name : "Enthralling Beauty", //required; the name of the racial feature
+			minlevel : 1, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Nymph Legacy)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Nymph Legacy (level 1)",
+				spells : ["charm person"],
+				selection : ["charm person"],
+				oncesr : true
+			}
+		},			
+		"oread ancestry" : { //note the use of lower case characters
+			name : "Hunter's Mark (Oread Ancestry)", //required; the name of the racial feature
+			minlevel : 3, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Oread Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Oread Ancestry (level 3)",
+				spells : ["hunter's mark"],
+				selection : ["hunter's mark"],
+				oncesr : true
+			},
+		},
+			"oread ancestry 2" : { //note the use of lower case characters
+			name : "Misty Step (Oread Ancestry)", //required; the name of the racial feature
+			minlevel : 7, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Oread Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Oread Ancestry (level 7)",
+				spells : ["misty step"],
+				selection : ["misty step"],
+				oncesr : true
+			}
+		}
+	}
+};
+
+RaceList["thyleansatyr"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+	regExpSearch : /^(?=.*satyr)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
+	name : "Thylean Satyr", //required; the name to use for the race
+	source : ["OoftheD", 319], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	plural : "Satyrs", //required; the name to use for the race when the plural form is used
+	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
+		// all of the following attributes are optional and you can add more ("burrow" isn't part of this example!)
+		walk : { spd : 30, enc : 15 }, // the objects "walk", "burrow", "climb", "fly", "swim" are all the same, they are an object with two attributes, 'spd' for the speed in feet, and 'enc' for the encumbered speed in feet.		
+	},
+	languageProfs : ["Common", "Sylvan"], // optional; this is an array of the language proficiencies gained. An entry can either be 1) a string that represents the language learned or 2) a number which is the number of language gained that can be chosen by the player
+	age : " mature quickly, reaching adulthood by their early teens. They can live for several centuries", //optional; the age tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	height : " range from 4 to 5 feet in height", //optional; the height tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	weight : " weigh between 100 and 150 pounds", //optional; the weight tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	improvements : "Satyrs: +1 Charisma, +2 Dexterity;", //required; the text that is displayed when listing all the ability score improvements
+	scores : [0, 2, 0, 0, 0, 1], //required; the ability score improvements as used by the Ability Score dialog. The syntax is: [Str, Dex, Con, Int, Wis, Cha]
+	toolProfs : [["Musical instrument"]],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	trait : "Satyr (+1 Charisma, +2 Dexterity)\nMemory of Music:\n You have proficiency with one instrument of your choice. You have advantage on Performance checks made with the selected instrument. You can also memorize and perform any song after hearing it only once.", //required; the racial trait as it will be put in the Racial Trait field on the second page (note that "\n" is a line break).
+	features : { //optional; the racial features. Each works the same way, so only a couple of example are given. You can add as many as you want. If the race has no level-dependent or limited features, you can just delete the whole feature entry all together
+		"enchanting music" : { //note the use of lower case characters
+			name : "Enchanting Music", //required; the name of the racial feature
+			minlevel : 1, //required; the level at which the feature is gained
+			tooltip : " (Satyrs Legacy)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Satyrs Legacy (level 1)",
+				spells : ["minor illusion"],
+				selection : ["minor illusion"],
+				atwill : true
+			}
+		},			
+		"satyr ancestry" : { //note the use of lower case characters
+			name : "Sleep (Satyr Ancestry)", //required; the name of the racial feature
+			minlevel : 3, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "long rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Satyr Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Satyr Ancestry (level 3)",
+				spells : ["sleep"],
+				selection : ["sleep"],
+				oncelr : true
+			},
+		},
+			"satyr ancestry 2" : { //note the use of lower case characters
+			name : "Suggestion (Satyr Ancestry)", //required; the name of the racial feature
+			minlevel : 7, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "long rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Satyr Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Satyr Ancestry (level 7)",
+				spells : ["suggestion"],
+				selection : ["suggestion"],
+				oncelr : true
+			}
+		}
+	}
+};
+
+RaceList["thyleansiren"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
+	regExpSearch : /^(?=.*siren)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
+	name : "Thylean Siren", //required; the name to use for the race
+	source : ["OoftheD", 320], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]	
+	plural : "Sirens", //required; the name to use for the race when the plural form is used
+	size : 3, //required;  the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	speed : { //required; This sets a value for one or more speed modes, and/or a value to be added to a specific speed mode or to all speed modes // the attributes of this object can be "walk", "burrow", "climb", "fly", "swim", and "allModes"
+		// all of the following attributes are optional and you can add more ("burrow" isn't part of this example!)
+		walk : { spd : 30, enc : 15 }, // the objects "walk", "burrow", "climb", "fly", "swim" are all the same, they are an object with two attributes, 'spd' for the speed in feet, and 'enc' for the encumbered speed in feet.
+		fly : { spd : 30},
+	},
+	languageProfs : ["Common", "Celestial"], // optional; this is an array of the language proficiencies gained. An entry can either be 1) a string that represents the language learned or 2) a number which is the number of language gained that can be chosen by the player
+	age : " mature at the same rate as humans, but they live about five times as long", //optional; the age tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	height : " slightly shorter than humans, and they have a wingspan of about 6 feet", //optional; the height tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	weight : " weigh between 100 and 150 pounds", //optional; the weight tooltip/mouseover text (will be displayed in combination with the "plural" entry)
+	improvements : "Sirens: +1 Dexterity, +2 Charisma;", //required; the text that is displayed when listing all the ability score improvements
+	scores : [0, 1, 0, 0, 0, 2], //required; the ability score improvements as used by the Ability Score dialog. The syntax is: [Str, Dex, Con, Int, Wis, Cha]
+	trait : "Siren (+1 Dexterity, +2 Charisma)\nEnthralling Voice\n You have advantage on Performance and Persuasion checks made with your voice. Additionally, your powerful lungs allow you to hold your breath for up to 1 hour.", //required; the racial trait as it will be put in the Racial Trait field on the second page (note that "\n" is a line break).
+	features : { //optional; the racial features. Each works the same way, so only a couple of example are given. You can add as many as you want. If the race has no level-dependent or limited features, you can just delete the whole feature entry all together
+		"songs of sorrow" : { //note the use of lower case characters
+			name : "Songs of Sorrow", //required; the name of the racial feature
+			minlevel : 1, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Siren Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Songs of Sorrow",
+				spells : ["charm person"],
+				selection : ["charm person"],
+				oncesr : true
+			},
+		},
+		"songs of sorrow 2" : { //note the use of lower case characters
+			name : "Songs of Sorrow (3rd level)", //required; the name of the racial feature
+			minlevel : 3, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Siren Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Songs of Sorrow (level 3)",
+				spells : ["enthrall"],
+				selection : ["enthrall"],
+				oncesr : true
+			}
+		},
+		"songs of sorrow 3" : { //note the use of lower case characters
+			name : "Songs of Sorrow (5th level)", //required; the name of the racial feature
+			minlevel : 5, //required; the level at which the feature is gained
+			usages : 1, //optional; number of times it can be used. This can be one value, but can also be an array of 20 values, one for each level
+			recovery : "short rest", //required if "usages" is defined; way of getting the limited feature recharged. If you can use anything, but use either "long rest" or "short rest" (note the lower case) for best compatibility with the limited features section. This can be one value, but can also be an array of 20 values, one for each level
+			tooltip : " (Siren Ancestry)", //optional; the tooltip added to the entry in the Limited Feature section, this example will read "Lesser Restoration is gained from Something Catlike (Celestial Legacy)"
+			action : ["action", ""], //optional; adds the name of the feature to the action list when chosen. The options are "action", "bonus action", and "reaction" //the second value in the array is added as a suffix for the "name" of the feature when entered into the action field
+			spellcastingBonus : { //optional; works just like the "spellcastingBonus" object defined above
+				spellcastingAbility : 6,
+				name : "Songs of Sorrow (level 5)",
+				spells : ["hold person"],
+				selection : ["hold person"],
+				oncesr : true
+			},
+		},
+	},
+	toNotesPage : [{
+		name : "Wavering Emotions:",
+		page3notes : true,
+		note : [
+		" Your mood affects your ability to sing and fly. After any short or long rest, you must choose whether you are feeling joyful or sad. While you are feeling sad, you lose your flying speed but gain songs of sorrow. While you are feeling joyful, you gain your flying speed but lose songs of sorrow. Your mood may change before the next time you rest, but it won’t affect which ability you have access to until after your next rest is completed.",
+		]
+	},
+	{	name : "Songs of Sorrow:",
+		page3notes : true,
+		note : [
+		" Your lamentations have a powerful effect on anyone who can hear them. You can cast the charm person spell once with this trait and regain the ability to do so when you finish a short rest. When you reach 3rd level, you can cast the enthrall spell once with this trait and regain the ability to do so when you finish a short rest. When you reach 5th level, you can cast the hold person spell once with this trait and regain the ability to do so when you finish a short rest. Charisma is your spellcasting ability for these spells, and the targets of your spells must have the ability to hear you singing."
+	]}
+	]
 };
 
 CreatureList["stimfay"] = {
@@ -91,13 +694,11 @@ CreatureList["stimfay"] = {
             modifiers: ["", "", ""],
         },
     ],
-
     actions: [{
             name: "Automated Helper",
             description: "The stimfay can carry a single potion and administer it to any willing creature as an action. Additionally, the stimfay can use a bonus action to stabilize a dying creature that it can touch.",
         },
     ],
-
     traits: [{
             name: "Keen Sight",
             description: "The stimfay has advantage on Wisdom (Perception) checks that rely on sight.",
@@ -109,6 +710,109 @@ CreatureList["stimfay"] = {
             description: "When the stimfay successfully hits a creature with its talons, that creature cannot make opportunity attacks until the beginning of its next turn.",
         },
     ],
+};
+
+CreatureList["bull"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets [] //the name entered here is used to identify the input, so it has to be the same as the "name : " below, but in lower case
+	name : "Bull", // Required; the name to use for the race
+	source : ["OoftheD", 316], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]
+	size : 2, // Required; the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	type : "Beast", // Required; the type of the creature. Always put something here!
+	subtype : "", // Required; the subtype of the creature. Do not delete this line, but it can be just ""
+	companion : "mount", // Optional; whether or not the creature will be added to the menu on the companion page, except the ranger's companion, that is based on other criteria.
+	/* The options are the following within the quotation marks (note the use of only lower case):
+		- "familiar" (Find Familiar spell AND Pact of the Chain warlock feature)
+		- "familiar_not_al" [only available from v13 onwards, same as "familiar" but ignored if the sheet is used for Adventurers League]
+		- "mount" (Find Steed spell)
+		- "steed" (Find Greater Steed spell)
+		- "pact_of_the_chain" (Pact of the Chain warlock feature)
+		- "companion" (UA: Revised Ranger's Beast Conclave feature)
+	Note that for the creature to be available to the PHB ranger, you don't need to do anything
+	*/
+	alignment : "Unaligned", // Required; the alignment. Always put something here!
+	ac : 11, // Required; the armour class. Always put something here!
+	hp : 36, //  Required; the amount of hit points. Always put something here!
+	hd : [4, 10], //[#, die]. Required; Always put something here!
+	speed : "40 ft", // Required; the speed of the race in feet (do not forget to put "ft" in the string)
+	scores : [18, 10, 16, 4, 10, 9], // [Str, Dex, Con, Int, Wis, Cha] Required;
+	saves : ["", "", "", "", "", ""], // [Str, Dex, Con, Int, Wis, Cha]. Required; The total of each Saving Throw (not just the modifier to the ability modifier). Only put something there if it is different than the normal ability score modifier (so when the creature is proficient or has other bonuses).
+	skills : { // Optional; any skill proficiencies the creature has. Enter the name of the skill with the total bonus in that skill, not just the proficiency bonus, but inlcude the ability score modifier as well!
+		"perception" : 4,
+	}, // if the creature has no skill proficiencies, you can delete the entire traits entry
+	senses : "passive Perception 14", // Required; senses granted by the race. This text will be put in the "Senses" section on the sheet. If you don't have anything to put here, DO NOT DELETE THIS LINE, but just put ""
+	languages : "", // Required; the language(s) known by the creature, note that they all appear as one string
+	challengeRating : "1", // Required; the Challenge Rating of the creature. Always put something here!
+	proficiencyBonus : 1, // Required; Proficiency Bonus the creature has. Always put something here!
+	attacksAction : 1, // Required; The amount of attacks per Attack action the creature can do. Always put something here!
+	attacks : [{ // Required; the attacks used for the companion and wild shape page
+			name : "Horns", // name of the attack
+			ability : 1, // the ability score used to calculate the to hit modifier (and the damage if applicable, see below). [Str=1, Dex=2, Con=3, Int=4, Wis=5, Cha=6]
+			damage : [1, 8, "piercing"], // [#, die, type] First entry is the amount of dice, second is the type of dice, and third is the damage type. //"" for die is allowed, meaning no die will be given, only the first digit will be present.
+			range : "Melee (10 ft)", // the attack's range
+			description : "", // the attack's description
+			modifiers : ["", 1, ""], // bonuses to: [to hit, to damage, add ability to damage]; "" means ignore. //For the first two (to hit and to damage), you can also enter the three-letter abbreviation of an ability score (Str, Dex, Con, Int, Wis, or Cha), to have that ability's modifier added to it. //The last one can be either "" (meaning you add ability modifier to damage) or false (meaning you don't add the ability modifier to damage)
+			dc : false, // optional, will make the To Hit field display a DC instead. This will overwrite the first value you put in Modifiers
+			tooltip : "" // optional, this text will be added to the tooltip of the description field of the attack of the Wild Shape. It will do nothing for the attack on the Companion page
+		}, // you can add more by copying what is between the {}, (also include the {}, )and putting it here
+	], // if the creature has no attacks, simply put [], DO NEVER DELETE the attack entry
+	actions : [{ // Optional; actions that are added to the companion "Traits" section as bullet points //with the Wild Shape, these traits are only added (also as bullet points) if no "wildshapeString" is defined, see below
+			name : "Charge", // name of the action
+			description : "If the bull moves at least 20 ft. straight toward a target and then hits it with a horns attack on the same turn, the target takes an extra 3 (1d6) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone.", // description of the action
+		},
+	],
+};
+
+CreatureList["dire bull"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets [] //the name entered here is used to identify the input, so it has to be the same as the "name : " below, but in lower case
+	name : "Dire Bull", // Required; the name to use for the race
+	source : ["OoftheD", 316], //required; the source and the page number. "HB" stands for homebrew. See the "Complete SourceList" for an overview of sources that are already defined. Or define a new source using the "Homebrew Syntax - SourceList.js". // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]
+	size : 2, // Required; the size of the race (Gargantuan = 0, Huge = 1, Large = 2, Medium = 3, Small = 4, Tiny = 5)
+	type : "Beast", // Required; the type of the creature. Always put something here!
+	subtype : "", // Required; the subtype of the creature. Do not delete this line, but it can be just ""
+	companion : "mount", // Optional; whether or not the creature will be added to the menu on the companion page, except the ranger's companion, that is based on other criteria.
+	/* The options are the following within the quotation marks (note the use of only lower case):
+		- "familiar" (Find Familiar spell AND Pact of the Chain warlock feature)
+		- "familiar_not_al" [only available from v13 onwards, same as "familiar" but ignored if the sheet is used for Adventurers League]
+		- "mount" (Find Steed spell)
+		- "steed" (Find Greater Steed spell)
+		- "pact_of_the_chain" (Pact of the Chain warlock feature)
+		- "companion" (UA: Revised Ranger's Beast Conclave feature)
+	Note that for the creature to be available to the PHB ranger, you don't need to do anything
+	*/
+	alignment : "Unaligned", // Required; the alignment. Always put something here!
+	ac : 12, // Required; the armour class. Always put something here!
+	hp : 46, //  Required; the amount of hit points. Always put something here!
+	hd : [5, 10], //[#, die]. Required; Always put something here!
+	speed : "40 ft", // Required; the speed of the race in feet (do not forget to put "ft" in the string)
+	scores : [18, 10, 16, 4, 10, 9], // [Str, Dex, Con, Int, Wis, Cha] Required;
+	saves : ["", "", "", "", "", ""], // [Str, Dex, Con, Int, Wis, Cha]. Required; The total of each Saving Throw (not just the modifier to the ability modifier). Only put something there if it is different than the normal ability score modifier (so when the creature is proficient or has other bonuses).
+	skills : { // Optional; any skill proficiencies the creature has. Enter the name of the skill with the total bonus in that skill, not just the proficiency bonus, but inlcude the ability score modifier as well!
+		"perception" : 4,
+	}, // if the creature has no skill proficiencies, you can delete the entire traits entry
+	senses : "passive Perception 14", // Required; senses granted by the race. This text will be put in the "Senses" section on the sheet. If you don't have anything to put here, DO NOT DELETE THIS LINE, but just put ""
+	languages : "", // Required; the language(s) known by the creature, note that they all appear as one string
+	challengeRating : "1", // Required; the Challenge Rating of the creature. Always put something here!
+	proficiencyBonus : 1, // Required; Proficiency Bonus the creature has. Always put something here!
+	attacksAction : 1, // Required; The amount of attacks per Attack action the creature can do. Always put something here!
+	attacks : [{ // Required; the attacks used for the companion and wild shape page
+			name : "Horns", // name of the attack
+			ability : 1, // the ability score used to calculate the to hit modifier (and the damage if applicable, see below). [Str=1, Dex=2, Con=3, Int=4, Wis=5, Cha=6]
+			damage : [1, 8, "piercing"], // [#, die, type] First entry is the amount of dice, second is the type of dice, and third is the damage type. //"" for die is allowed, meaning no die will be given, only the first digit will be present.
+			range : "Melee (10 ft)", // the attack's range
+			description : "", // the attack's description
+			modifiers : ["", 1, ""], // bonuses to: [to hit, to damage, add ability to damage]; "" means ignore. //For the first two (to hit and to damage), you can also enter the three-letter abbreviation of an ability score (Str, Dex, Con, Int, Wis, or Cha), to have that ability's modifier added to it. //The last one can be either "" (meaning you add ability modifier to damage) or false (meaning you don't add the ability modifier to damage)
+			dc : false, // optional, will make the To Hit field display a DC instead. This will overwrite the first value you put in Modifiers
+			tooltip : "" // optional, this text will be added to the tooltip of the description field of the attack of the Wild Shape. It will do nothing for the attack on the Companion page
+		}, // you can add more by copying what is between the {}, (also include the {}, )and putting it here
+	], // if the creature has no attacks, simply put [], DO NEVER DELETE the attack entry
+	traits : [{ // Optional; features that are added to the companion "Features" section as bullet points after the abovementioned vulnerabilitie, immunities, resistances, senses, and languages //with the Wild Shape, these features are never added
+			name : "Relentless (1/day)", // name of the trait
+			description : "If the bull takes 10 damage or less that would reduce it to 0 hit points, it is reduced to 1 hit point instead.", // description of the trait
+		},
+	], // if the creature has no traits, you can delete the entire traits entry
+	actions : [{ // Optional; actions that are added to the companion "Traits" section as bullet points //with the Wild Shape, these traits are only added (also as bullet points) if no "wildshapeString" is defined, see below
+			name : "Charge", // name of the action
+			description : "If the bull moves at least 20 ft. straight toward a target and then hits it with a horns attack on the same turn, the target takes an extra 3 (1d6) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone.", // description of the action
+		},
+	],
 };
 
 SpellsList["animal polymorph"] = {
@@ -252,21 +956,6 @@ SpellsList["theogenesis"] = {
     ritual: false,
     psionic: false,
     dependencies: [],
-};
-
-WeaponsList["chakram"] = {
-    regExpSearch: /^(?=.*chakram).*$/i,
-    name: "Chakram",
-    source: ["OoftheD", 334],
-    list: "ranged",
-    ability: 2,
-    type: "Martial",
-    damage: [1, 6, "slashing"],
-    range: "60/120 ft",
-    description: "Light, finesse, thrown, special: Chakram returns unless natural 1 attck",
-    abilitytodamage: true,
-    weight: 2,
-    monkweapon: false,
 };
 
 AddSubClass("barbarian", "herculean path", {
@@ -964,4 +1653,44 @@ WeaponsList["sauroter"] = {
 	range : "Melee",
 	description : "As bonus action after taking an attack action with only a spear, trident, or javelin",
 	abilitytodamage : true
+};
+WeaponsList["chakram"] = {
+    regExpSearch: /^(?=.*chakram).*$/i,
+    name: "Chakram",
+    source: ["OoftheD", 334],
+    list: "ranged",
+    ability: 2,
+    type: "Martial",
+    damage: [1, 6, "slashing"],
+    range: "60/120 ft",
+    description: "Light, finesse, thrown, special: Chakram returns unless natural 1 attck",
+    abilitytodamage: true,
+    weight: 2,
+    monkweapon: false,
+};
+WeaponsList["snake hair"] = {
+			name : "Snake Hair",
+			regExpSearch : /^(?=.*snake)(?=.*hair).*$/i,
+			source : ["OoftheD", 314],
+			type : "Natural",
+			action : ["action"],
+			ability : 2,
+			damage : [1, 6, "piercing"],
+			range : "Melee",
+			description : "target makes a DC 12 Con saving throw or else they are poisoned until the beginning of my next turn.",
+			abilitytodamage : false
+},
+
+WeaponsList["petrifying gaze"] = {		
+			name : 	"Petrifying Gaze",
+			regExpSearch : /^(?=.*snake)(?=.*petrifying).*$/i,
+			source : ["OoftheD", 314],			
+			type : "Natural",
+			ability : 4,
+			damage : [1, 0, "petrify"],
+			abilitytodamage : false,
+			range : "30 ft",
+			action : ["action",""],
+			dc : true,
+			description : " creature is paralyzed until the end of its next turn."
 };
