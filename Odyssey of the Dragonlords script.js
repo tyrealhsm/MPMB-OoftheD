@@ -8,6 +8,141 @@ SourceList["OoftheD"] = {
     date: "2019/09/20",
 };
 
+var EpicPoems = {
+	epic_courage : {
+		name : "Epic Courage", //required;
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me.", //required;
+			savetxt : { 
+			adv_vs : ["effects that would frighten me"]
+		},
+	},
+	epic_determination : {
+		name : "Epic Courage and Determination",
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws"]
+		},
+	},
+	epic_foresight : {
+		name : "Epic Courage, Determination, and Foresight",
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5.",
+		savetxt : { // Optional; this attribute defines entries to add to the field for "Saving Throw Advantages / Disadvantages"
+			adv_vs : ["effects that would frighten me", "death saving throws"],
+			immune : ["surprise"],
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],
+	},
+	epic_reflexes : {
+		name : "Epic Courage, Determination, Foresight, and Reflexes",
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],		
+	},
+	epic_resistance_acid : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Acid)",		
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to acid damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],	
+		dmgres : ["Acid"]		
+	},
+	epic_resistance_lightning : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Lightning)",			
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to lightning damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],
+		dmgres : ["Lightning"]		
+	},
+	epic_resistance_fire : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Fire)",			
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to fire damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],
+		dmgres : ["Fire"]		
+	},
+	epic_resistance_poison : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Poison)",		
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to poison damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],
+		dmgres : ["Poison"]		
+	},
+	epic_resistance_cold : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Cold)",		
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to cold damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],
+		dmgres : ["Cold"]		
+	},
+	epic_resistance_necrotic : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Necrotic)",		
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to necrotic damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],
+		dmgres : ["Necrotic"]		
+	},
+	epic_resistance_radiant : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Radiant)",		
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to radiant damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],
+		dmgres : ["Radiant"]		
+	},
+	epic_resistance_force : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Force)",		
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to force damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],
+		dmgres : ["Force"]		
+	},
+	epic_resistance_thunder : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Thunder)",		
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to thunder damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],	
+		dmgres : ["Thunder"]		
+	},
+	epic_resistance_psychic : {
+		name : "Epic Courage, Determination, Foresight, Reflexes, and Resistance (Psychic)",		
+		description : "\n   " + "I gain advantage on saving throws against effects that would frighten me."+"\n   " + "I gain advantage on death saving throws."+"\n   " + "I cannot be surprised, and my passive Perception increases by +5."+"\n   " + "I gain advantage on saving throws against spells that affect multiple targets."+"\n   " + "I gain resistance to psychic damage.",
+		savetxt : { 
+			adv_vs : ["effects that would frighten me", "death saving throws", "spells w/multiple targets"],
+			immune : ["surprise"],			
+		},
+		addMod : [{ type : "", field : "Passive Perception Bonus", mod : 5, text : "Epic Foresight" }],
+		dmgres : ["Psychic"]		
+	},		
+};
+
 RaceList["thyleancentaur"] = { //Object name; Note the use of only lower case! Also note the absence of the word "var" and the use of brackets []
 	regExpSearch : /^(?=.*centaur)(?=.*thylean).*$/i, //required; regular expression of what to look for (i.e. now it looks for any entry that has both the words "something" and "catlike" in it, disregarding capitalization). If this looks too complicated, just write: /something catlike/i
 	name : "Thylean Centaur", //required; the name to use for the race
@@ -1001,6 +1136,97 @@ AddSubClass("barbarian", "herculean path", {
 			action: ["action", ""],
 			usage: 1,
 			recovery: "long rest"
+		}
+	}
+});
+
+AddSubClass("bard", "college of epic poetry", {
+	regExpSearch : /^(?=.*(college|bard|minstrel|troubadour|jongleur))(?=.*poet).*$/i,
+	subname : "College of Epic Poetry",
+	source : ["OoftheD", 323],
+	features : {
+		"subclassfeature3" : {
+			name : "Epic Verses",
+			source : ["OoftheD", 323],
+			minlevel : 3,
+			description : desc([
+				"When certain significant events occur during my travels or during combat, I may use my reaction to compose a new epic verse. Significant events are defined as any of the following things happening to me or one of my allies by chance (e.g. my party cannot deliberately force them to happen by repetition). I must be able to see or hear the event happen.", 
+				"• Comedy: Someone rolls a natural 1 on an attack or saving throw.",
+				"• Hubris: Someone rolls a natural 20 on an attack or saving throw.",
+				"• Irony: Someone fails a saving throw after adding a Bardic Inspiration die.",
+				"• Tragedy: Someone is reduced to zero hit points by an enemy.",
+				"• Or any Epic event deemed worth by GM approval.",
+				"See page 3 for Poem ranks and effects",
+			]),
+			toNotesPage : [{ 
+				name : "Epic Poem Ranks and Effects",
+				note : [
+				"Poem 	Required		Bardic Inspiration",
+				"Rank	Verse Count 	 Improvement",
+				" 1    	6 		 Minimum Value = 2",
+				" 2 	12 	 	Epic Courage",
+				" 3 	18 	 	Minimum Value = 3",
+				" 4 	24 	 	Epic Foresight",
+				" 5 	30 	 	Minimum Value = 4",
+				" 6 	36 	 	Epic Determination",
+				" 7 	42 	 	Minimum Value = 5",
+				" 8 	48 	 	Epic Reflexes",
+				" 9 	54 	 	Minimum Value = 6",
+				" 10 	60 	 	Epic Resistance",
+				],
+				page3notes : true,
+			}],	
+			action : ["reaction", ""]
+		},
+		
+		"subclassfeature3.1" : {
+			name : "Inspirational Performance",
+			source : ["OoftheD", 323],
+			minlevel : 3,
+			description : "When I give someone Bardic Inspiration, I recite a portion of my epic poem, which improves the effect of the dice based upon the rank of my poem." + "\n   " + "Add your maximum Epic Poem level using the \"Choose Feature\" button above",
+			toNotesPage : [{ 
+				name : "Additional Effects:" + "\n" ,
+				note : [
+				"• Epic Courage: I gain advantage on saving throws against effects that would frighten me.",
+				"• Epic Determination: I gain advantage on death saving throws.",
+				"• Epic Foresight: I cannot be surprised, and my passive Perception increases by +5.",
+				"• Epic Reflexes: I gain advantage on saving throws against spells that affect multiple targets.",
+				"• Epic Resistance: I gain resistance to one damage type (Bard’s choice).",
+				],
+				page3notes : true,	
+			}],
+			choices : ["Epic Courage", "Epic Determination", "Epic Foresight", "Epic Reflexes", "Epic Resistance (Acid)", "Epic Resistance (Lightning)", "Epic Resistance (Fire)", "Epic Resistance (Poison)", "Epic Resistance (Cold)", "Epic Resistance (Necrotic)", "Epic Resistance (Radiant)", "Epic Resistance (Force)", "Epic Resistance (Thunder)", "Epic Resistance (Psychic)"], //optional; choices the feature offers, if any.
+			choicesNotInMenu : false, //optional: this tells the sheet not to put the choices into the "Choose Options" menu on the second page. Use this is you want to have the choices selected through another class feature. See for an example of this the "Draconic Bloodline" sorcerer archetype. // Note that you always want to have the choices listed in the choices attribute, because otherwise they won't be updated if they have level-dependent features
+				"epic courage" : EpicPoems.epic_courage,
+				"epic determination" : EpicPoems.epic_determination,
+				"epic foresight" : EpicPoems.epic_foresight,
+				"epic reflexes" : EpicPoems.epic_reflexes,
+				"epic resistance (acid)" : EpicPoems.epic_resistance_acid,
+				"epic resistance (lightning)" : EpicPoems.epic_resistance_lightning,
+				"epic resistance (fire)" : EpicPoems.epic_resistance_fire,
+				"epic resistance (poison)" : EpicPoems.epic_resistance_poison,
+				"epic resistance (cold)" : EpicPoems.epic_resistance_cold,
+				"epic resistance (necrotic)" : EpicPoems.epic_resistance_necrotic,
+				"epic resistance (radiant)" : EpicPoems.epic_resistance_radiant,
+				"epic resistance (force)" : EpicPoems.epic_resistance_force,
+				"epic resistance (thunder)" : EpicPoems.epic_resistance_thunder,
+				"epic resistance (psychic)" : EpicPoems.epic_resistance_psychic,				
+		},	
+		
+		"subclassfeature6" : {
+			name : "Armored Poet",
+			source : ["OoftheD", 324],
+			minlevel : 6,
+			action : ["bonus action", ""],
+			description : "\n   " + "I gain proficiency with medium armor, so that I can get close to the fighting while composing my poem. Additionally, if I am within 5 feet of an ally when I compose an epic verse about , then I regain one expended Bardic Inspiration die.",
+			armorProfs : [true, true, false, false], //optoinal; Armour proficiencies the race has. This line can be deleted if you don't have anything to put here //the 4 entries are for proficiency in: ["light", "medium", "heavy", "shields"]
+		},
+		
+		"subclassfeature14" : {
+			name : "Unbreakable Majesty",
+			source : ["OoftheD", 324],
+			minlevel : 14,
+			description : "\n   " + "Whenever a character with my Bardic Inspiration die would be reduced to 0 hit points, they may choose to roll their Bardic Inspiration die and be reduced to that number of hit points instead. The Bardic Inspiration die is then lost."
 		}
 	}
 });
